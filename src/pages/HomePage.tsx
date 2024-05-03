@@ -5,29 +5,18 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, SetStateAction } from "react";
 import { ALL_COUNTRIES } from "../config";
-import { flushSync } from "react-dom";
 
-type CountryType = {
-  capital: string;
-  flags: { png: string; svg: string };
-  name: string;
-  population: number;
-  region: string;
-  info: { title: string; description: string }[];
+type HomePageProps = {
+  countries: CountryShort[];
+  setCountries: (value: SetStateAction<CountryShort[]>) => void;
 };
 
-type HomePageState = {
-  countries: CountryType[];
-  setCountries: (value: SetStateAction<never[]>) => void; // TODO: specify value type
-};
-
-export const HomePage = ({ countries, setCountries }: HomePageState) => {
+export const HomePage = ({ countries, setCountries }: HomePageProps) => {
   const [filteredCountries, setFilteredCountries] = useState(countries);
 
   const navigate = useNavigate();
 
   const handleSearch = (search?: string, region?: string) => {
-    // TODO: specify region type
     let data = [...countries];
 
     if (region) {
@@ -57,7 +46,7 @@ export const HomePage = ({ countries, setCountries }: HomePageState) => {
     <>
       <Controls onSearch={handleSearch} />
       <List>
-        {filteredCountries.map((c: CountryType) => {
+        {filteredCountries.map((c: CountryShort) => {
           const countryInfo = {
             img: c.flags.png,
             name: c.name,

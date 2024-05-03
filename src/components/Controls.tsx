@@ -1,34 +1,11 @@
 import { useEffect, useState } from "react";
 import { Search } from "./Search";
 import { CustomSelect } from "./CustomSelect";
-import styled from "styled-components";
-
-const regions = [
-  { value: "Africa", label: "Africa" },
-  { value: "America", label: "America" },
-  { value: "Asia", label: "Asia" },
-  { value: "Europe", label: "Europe" },
-  { value: "Oceania", label: "Oceania" },
-];
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  @media (min-width: 767px) {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-`;
+import { Wrapper } from "../styles/Controls";
+import { regions } from "./RegionsList";
 
 type ControlProps = {
   onSearch: (search: string, region: string) => void;
-};
-
-type Region = {
-  value: string;
-  label: string;
 };
 
 export const Controls = ({ onSearch }: ControlProps) => {

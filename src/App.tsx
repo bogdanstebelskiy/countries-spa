@@ -8,10 +8,8 @@ import { Details } from "./pages/Details";
 import { NotFound } from "./pages/NotFound";
 import { useState } from "react";
 
-// TODO: extract type definitions (interfaces) to .d.ts declaration files
-
 function App() {
-  const [countries, setCountries] = useState([]); // TODO: specify countries type
+  const [countries, setCountries] = useState<CountryShort[]>([]);
 
   return (
     <>

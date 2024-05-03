@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -10,5 +10,3 @@ const Wrapper = styled.div`
     flex-direction: row;
   }
 `;
-
-export { Wrapper };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Search } from "./Search";
-import { CustomSelect } from "./CustomSelect";
+import { CustomSelect } from "../styles/CustomSelect";
 import { Wrapper } from "../styles/Controls";
 import { regions } from "./RegionsList";
 

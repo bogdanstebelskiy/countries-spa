@@ -60,7 +60,7 @@ export const Card = ({ img, name, info = [], onClick }: CardProps) => {
         <CardList>
           {info.map((el) => (
             <CardListItem key={el.title}>
-              <b>{el.title}:</b>
+              <b>{el.title}: </b>
               {el.description}
             </CardListItem>
           ))}

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -21,7 +20,7 @@ export const Info = (props: InfoProps) => {
   const {
     name,
     nativeName,
-    flag,
+    flags,
     capital,
     population,
     region,
@@ -45,32 +44,26 @@ export const Info = (props: InfoProps) => {
 
   return (
     <Wrapper>
-      <InfoImage src={flag} alt={name} />
+      <InfoImage src={flags.png} alt={name} />
       {/* TODO: use map to output list */}
       <div>
         <InfoTitle></InfoTitle>
         <ListGroup>
           <List>
-            <ListItem>
-              <b>Native Name: </b>
-              {nativeName}
-            </ListItem>
-            <ListItem>
-              <b>Population: </b>
-              {population}
-            </ListItem>
-            <ListItem>
-              <b>Region: </b>
-              {region}
-            </ListItem>
-            <ListItem>
-              <b>Sub Region: </b>
-              {subregion}
-            </ListItem>
-            <ListItem>
-              <b>Capital: </b>
-              {capital}
-            </ListItem>
+            {
+              [
+                { label: "Native Name: ", data: nativeName },
+                { label: "Population: ", data: population },
+                { label: "Region: ", data: region },
+                { label: "Sub Region: ", data: subregion },
+                { label: "Capital: ", data: capital }
+              ].map(({ label, data }) => (
+                <ListItem key={label}>
+                  <b>{label}</b>
+                  {data}
+                </ListItem>
+              ))
+            }
           </List>
           <List>
             <ListItem>

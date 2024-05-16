@@ -22,6 +22,10 @@ export const CustomSelect = styled(Select).attrs({
         ? "var(--colors-bg)"
         : "var(--colors-ui-base)",
     }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: "var(--colors-ui-base)",
+    })
   },
 })`
   width: 200px;
